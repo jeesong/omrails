@@ -5,7 +5,7 @@ class PinsController < ApplicationController
   def index
     # To only show your own pins:
     # @pins = current_user.pins.all
-    @pins = Pin.all
+    @pins = Pin.order("created_at desc")
 
     respond_to do |format|
       format.html # index.html.erb
