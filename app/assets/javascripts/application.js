@@ -12,6 +12,69 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.masonry.min.js
+//= require imagesloaded.pkgd.js
+//= require masonry.pkgd.js
 //= require bootstrap
 //= require_tree .
+
+
+// $('#pins').imagesLoaded( function() {
+//   alert("")
+//   // images have loaded
+// });
+
+// $(function () {
+//   var $container = $('#pins');
+//     $container.imagesLoaded(function(){
+//       alert("HI")
+//       $container.masonry({
+//        itemSelector : '.box',
+//        //columnWidth : 240
+//     });
+//   });
+// });
+
+$(function () {
+var $container = $('#pins');
+// initialize Masonry after all images have loaded
+$container.imagesLoaded( function() {
+  $container.masonry({
+    itemSelector: '.box',
+    columnWidth : 240
+  });
+});
+});
+
+// // or with jQuery
+// // initialize Masonry
+// $(function () {
+// var $container = $('#pins').masonry();
+// // // layout Masonry again after all images have loaded
+//   $container.imagesLoaded( function() {
+//     $container.masonry({
+//       itemSelector: '.box',
+//        columnWidth : 240
+//     });
+//   });
+// });
+// $(function () {
+// var $container = $('#pins')
+// $container.imagesLoaded( function() {
+//     $container.masonry({
+//       itemSelector: '.box',
+//       columnWidth : 240
+//     });
+//   });
+// });
+
+// $(function () {
+//   $('#pins').masonry({
+//        itemSelector: '.box',
+//        columnWidth : 240
+//     });
+// });
+
+
+
+
+
