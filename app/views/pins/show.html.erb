@@ -9,6 +9,20 @@
       <p>
          <%= @pin.user.name %>
       </p>
+      <p>
+        <% @comments.each do |comment| %>
+          <p>
+          <strong><%= User.find(comment.user_id).name %></strong>: <%= comment.body %>
+          </p>
+        <% end %>
+      </p>
+
+      <%= form_for @comment do |f| %>
+        <%= f.text_area :body, placeholder: "Enter Comment Here" %>
+        <%= f.hidden_field :pin_id, value: @pin.id %>
+        <%= f.submit %>
+      <% end %>
+
       <% if current_user == @pin.user %>
       <%= link_to 'Edit', edit_pin_path(@pin) %> |
       <% end %>
@@ -16,6 +30,10 @@
     </div>
   </div>
 </div>
+
+
+
+
 
 
 
