@@ -18,7 +18,8 @@ class PinsController < ApplicationController
   def show
     @pin = Pin.find(params[:id])
     @comment = Comment.new
-    @comments = Comment.where(pin_id: @pin)
+    # @comments = Comment.where(pin_id: @pin)
+    @comments = Comment.where(commentable_type: Pin, commentable_id: @pin)
 
     respond_to do |format|
       format.html # show.html.erb

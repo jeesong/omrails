@@ -19,7 +19,8 @@
 
       <%= form_for @comment do |f| %>
         <%= f.text_area :body, placeholder: "Enter Comment Here" %>
-        <%= f.hidden_field :pin_id, value: @pin.id %>
+        <%= f.hidden_field :commentable_type, value: "Pin" %>
+        <%= f.hidden_field :commentable_id, value: @pin.id %>
         <%= f.submit %>
       <% end %>
 
@@ -30,7 +31,6 @@
     </div>
   </div>
 </div>
-
 
 
 

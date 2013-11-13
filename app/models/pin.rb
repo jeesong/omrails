@@ -1,7 +1,7 @@
 class Pin < ActiveRecord::Base
   attr_accessible :description, :image
 
-  has_many :comments
+  has_many :comments, as: :commentable, dependent: :destroy
 
   belongs_to :user
   has_attached_file :image, styles:{medium: "320x240"}

@@ -15,6 +15,10 @@ class TextPinsController < ApplicationController
   # GET /text_pins/1.json
   def show
     @text_pin = TextPin.find(params[:id])
+    @comment = Comment.new
+    # @comments = Comment.all
+    @comments = Comment.where(commentable_type: "Text_Pin", commentable_id: @text_pin)
+    # @comments = Comment.where(commentable_type: Text_Pin, commentable_id: @text_pin)
 
     respond_to do |format|
       format.html # show.html.erb
